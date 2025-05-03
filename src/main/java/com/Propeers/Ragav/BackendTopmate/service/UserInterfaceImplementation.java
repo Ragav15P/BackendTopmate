@@ -3,6 +3,7 @@ package com.Propeers.Ragav.BackendTopmate.service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import com.Propeers.Ragav.BackendTopmate.entity.Role;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ public class UserInterfaceImplementation implements UserInterface
 	@Override
 	public User createUser(User user) 
 	{
+		user.setRole(Role.USER);
 
 		return userrepo.save(user);
 	}

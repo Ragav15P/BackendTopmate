@@ -3,9 +3,14 @@ package com.Propeers.Ragav.BackendTopmate.entity;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
 @Entity
+//@NoArgsConstructor
+//@AllArgsConstructor
 @Table(name = "users")
 public class User {
 
@@ -27,6 +32,10 @@ public class User {
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
 
     @PrePersist
     protected void onCreate() {
@@ -134,10 +143,20 @@ public class User {
 	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+	
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
 
 	public User(Long id, String fullName, String username, String email, String password, String bio, String profession,
 			String profilePicture, String socialLinks, Boolean isActive, LocalDateTime createdAt,
-			LocalDateTime updatedAt) {
+			LocalDateTime updatedAt,Role role) {
 		super();
 		this.id = id;
 		this.fullName = fullName;
@@ -151,7 +170,8 @@ public class User {
 		this.isActive = isActive;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
-	}
+		this.role=role;
+		}
 
 	public User() {
 		super();
