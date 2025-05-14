@@ -23,18 +23,18 @@ public class MentorRequest
     private User user;
 
     @Enumerated(EnumType.STRING)
-    private MentorStatus status;
+    private ApprovalStatus status;
 
     private LocalDateTime requestedAt;
     private LocalDateTime processedAt;
 
     // Getters and Setters
 
-    public MentorStatus getStatus() {
+    public ApprovalStatus getStatus() {
         return status;
     }
 
-    public void setStatus(MentorStatus status) {
+    public void setStatus(ApprovalStatus status) {
         this.status = status;
     }
 
@@ -70,3 +70,8 @@ public class MentorRequest
         this.processedAt = processedAt;
     }
 }
+
+
+//Session Booking Entity
+
+  //

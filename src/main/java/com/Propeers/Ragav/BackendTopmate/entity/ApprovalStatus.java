@@ -1,6 +1,6 @@
 package com.Propeers.Ragav.BackendTopmate.entity;
 
-public enum MentorStatus 
+public enum ApprovalStatus
 {
 	PENDING,
     APPROVED,

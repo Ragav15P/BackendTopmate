@@ -58,6 +58,7 @@ import com.Propeers.Ragav.BackendTopmate.service.UserInterface;
 	        return user.map(ResponseEntity::ok)
 	                   .orElseGet(() -> ResponseEntity.notFound().build());
 	    }
+	    //Move to request param annote
 	    
 	    @GetMapping("/exists/username/{username}")
 	    public ResponseEntity<Boolean> checkUsernameExists(@PathVariable String username) {
@@ -69,6 +70,8 @@ import com.Propeers.Ragav.BackendTopmate.service.UserInterface;
 	        List<User> users = userService.getUsersByProfession(profession);
 	        return ResponseEntity.ok(users);
 	    }
+	    
+	    // enum class for proffesions
 	    @GetMapping("/profession/search/{keyword}")
 	    public ResponseEntity<List<User>> searchUsersByProfession(@PathVariable String keyword) {
 	        List<User> users = userService.searchByProfessionKeyword(keyword);

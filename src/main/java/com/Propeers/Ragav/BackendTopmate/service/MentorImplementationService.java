@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Propeers.Ragav.BackendTopmate.entity.MentorRequest;
-import com.Propeers.Ragav.BackendTopmate.entity.MentorStatus;
+import com.Propeers.Ragav.BackendTopmate.entity.ApprovalStatus;
 import com.Propeers.Ragav.BackendTopmate.entity.User;
 import com.Propeers.Ragav.BackendTopmate.repo.MentorRepository;
 import com.Propeers.Ragav.BackendTopmate.repo.UserRepository;
@@ -31,7 +31,7 @@ public class MentorImplementationService implements MentorInterface
             User user = userOpt.get();
             MentorRequest mentorRequest = new MentorRequest();
             mentorRequest.setUser(user);
-            mentorRequest.setStatus(MentorStatus.PENDING);
+            mentorRequest.setStatus(ApprovalStatus.PENDING);
             mentorRequest.setRequestedAt(LocalDateTime.now());
             return mr.save(mentorRequest);
         }
@@ -39,7 +39,7 @@ public class MentorImplementationService implements MentorInterface
 	}
 
 	@Override
-	public MentorRequest updateMentorRequestStatus(Long requestId, MentorStatus status) {
+	public MentorRequest updateMentorRequestStatus(Long requestId, ApprovalStatus status) {
 		 Optional<MentorRequest> requestOpt = mr.findById(requestId);
 	        if (requestOpt.isPresent()) {
 	            MentorRequest mentorRequest = requestOpt.get();
@@ -63,7 +63,7 @@ public class MentorImplementationService implements MentorInterface
 	}
 
 	@Override
-	public MentorRequest updateStatus(Long id, MentorStatus newStatus) {
+	public MentorRequest updateStatus(Long id, ApprovalStatus newStatus) {
 		// TODO Auto-generated method stub
 		
 		MentorRequest request = mr.findById(id)
@@ -84,3 +84,5 @@ public class MentorImplementationService implements MentorInterface
 //	}
 
 }
+//availability slot
+

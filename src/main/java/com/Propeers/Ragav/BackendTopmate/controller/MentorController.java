@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Propeers.Ragav.BackendTopmate.dto.StatusUpdateRequest;
 import com.Propeers.Ragav.BackendTopmate.entity.MentorRequest;
-import com.Propeers.Ragav.BackendTopmate.entity.MentorStatus;
+import com.Propeers.Ragav.BackendTopmate.entity.ApprovalStatus;
 import com.Propeers.Ragav.BackendTopmate.service.MentorInterface;
 
 @RestController
@@ -25,6 +25,7 @@ public class MentorController
 {
   @Autowired
   private MentorInterface mir;
+  //constructor Injection
      
   
   @PostMapping("/{userId}")
@@ -80,7 +81,7 @@ public class MentorController
           throw new IllegalArgumentException("Status must not be null or empty.");
       }
 
-      MentorStatus newStatus = MentorStatus.valueOf(statusText.toUpperCase());
+      ApprovalStatus newStatus = ApprovalStatus.valueOf(statusText.toUpperCase());
       MentorRequest updatedRequest = mir.updateStatus(id, newStatus);
 
       return ResponseEntity.ok(updatedRequest);
